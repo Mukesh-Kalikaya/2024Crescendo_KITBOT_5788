@@ -17,9 +17,17 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
   public static class DrivetrainConstants {
-    public static final int kDriveLeaderLeft = 1;
-    public static final int kDriveFollowerLeft = 2;
-    public static final int kDriveLeaderRight = 3;
-    public static final int kDriveFollowerRight = 4;
+    public static final int kDriveLeaderLeft = 10;
+    public static final int kDriveFollowerLeft = 4;
+    public static final int kDriveLeaderRight = 2;
+    public static final int kDriveFollowerRight = 5;
+  }
+  public static class ShooterConstants {
+    // CAN
+    public static final int kLauncherID = 7;
+    public static final int kFeederID = 8;
+
+    public static final int kIntakeFeederSpeed = 1;
+    public static final int kIntakeLauncherSpeed = -1;
   }
 }

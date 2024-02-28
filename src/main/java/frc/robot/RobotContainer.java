@@ -9,7 +9,7 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Launcher;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final Launcher m_exampleSubsystem = new Launcher();
   private final Drivetrain m_driveTrain = new Drivetrain();
 
   // Commands
@@ -49,12 +49,12 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
+    // new Trigger(Launcher::exampleCondition)
+    //     .onTrue(new ExampleCommand(m_exampleSubsystem));
 
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    // // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
+    // // cancelling on release.
+    // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
   }
 
   /**
@@ -62,10 +62,10 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
-    // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
-  }
+  // public Command getAutonomousCommand() {
+  //   // An example command will be run in autonomous
+  //   return Autos.exampleAuto(m_exampleSubsystem);
+  // }
 
   public Command getTankDriveCommand() {
     return m_tankDrive;
@@ -78,4 +78,20 @@ public class RobotContainer {
   public static double getDriveRightAxis() {
     return m_driverController.getRightY();
   }
+
+  // public static double getDriveLeftAxis() {
+  //   if (Math.abs(m_driverController.getRightY()) > 0) {
+  //     return m_driverController.getRightY();
+  //   } else {
+  //     return 0;
+  //   }
+  // }
+
+  // public static double getDriveRightAxis() {
+  //   if (Math.abs(m_driverController.getLeftY()) > 0) {
+  //     return m_driverController.getLeftY();
+  //   } else {
+  //     return 0;
+  //   }
+  // }
 }

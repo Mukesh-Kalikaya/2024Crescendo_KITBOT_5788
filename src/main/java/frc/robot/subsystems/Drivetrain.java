@@ -8,6 +8,8 @@ package frc.robot.subsystems;
 // import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix.motorcontrol.GroupMotorControllers;
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 // import com.ctre.phoenix6.hardware.DeviceIdentifier;
 
@@ -37,7 +39,7 @@ public class Drivetrain extends SubsystemBase {
     leftMotor2.follow(leftMotor1);
     rightMotor2.follow(rightMotor1);
 
-    rightMotor1.setInverted(true);
+    rightMotor2.setInverted(false);
   }
 
   @Override
@@ -46,7 +48,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setPower(double leftPower, double rightPower) {
-    leftMotor1.set(TalonSRXControlMode.PercentOutput, leftPower);
+    leftMotor1.set(TalonSRXControlMode.PercentOutput, -leftPower*0.75);
     rightMotor1.set(TalonSRXControlMode.PercentOutput, rightPower);
   }
 }

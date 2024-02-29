@@ -32,6 +32,9 @@ public class RobotContainer {
   private static final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
+  private static final CommandXboxController m_manipulatorController =
+      new CommandXboxController(OperatorConstants.kManipulatorControllerPort);
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -72,26 +75,34 @@ public class RobotContainer {
   }
 
   public static double getDriveLeftAxis() {
-    return m_driverController.getLeftY();
+    if (Math.abs(m_driverController.getLeftY()) > 0) {
+      return m_driverController.getLeftY();
+    } else {
+      return 0;
+    }
   }
 
   public static double getDriveRightAxis() {
-    return m_driverController.getRightY();
+    if (Math.abs(m_driverController.getRightY()) > 0) {
+      return m_driverController.getRightY();
+    } else {
+      return 0;
+    }
   }
 
-  // public static double getDriveLeftAxis() {
-  //   if (Math.abs(m_driverController.getRightY()) > 0) {
-  //     return m_driverController.getRightY();
-  //   } else {
-  //     return 0;
-  //   }
-  // }
+  public static double getShooterTriggerIntake() {
+    if (Math.abs(m_manipulatorController.getLeftTriggerAxis()) > 0) {
+      return m_manipulatorController.getLeftTriggerAxis();
+    } else {
+      return 0;
+    }
+  }
 
-  // public static double getDriveRightAxis() {
-  //   if (Math.abs(m_driverController.getLeftY()) > 0) {
-  //     return m_driverController.getLeftY();
-  //   } else {
-  //     return 0;
-  //   }
-  // }
+  public static double getShooterTriggerOuttake() {
+    if (Math.abs(m_manipulatorController.getRightTriggerAxis()) > 0) {
+      return m_manipulatorController.getRightTriggerAxis();
+    } else {
+      return 0;
+    }
+  }
 }

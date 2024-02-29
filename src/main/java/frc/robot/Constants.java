@@ -15,8 +15,10 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
+    public static final int kManipulatorControllerPort = 1;
   }
   public static class DrivetrainConstants {
+    // CAN
     public static final int kDriveLeaderLeft = 10;
     public static final int kDriveFollowerLeft = 4;
     public static final int kDriveLeaderRight = 2;
@@ -25,9 +27,9 @@ public final class Constants {
   public static class ShooterConstants {
     // CAN
     public static final int kLauncherID = 7;
-    public static final int kFeederID = 8;
+    public static final int kFeederID = 3;
 
-    public static final int kIntakeFeederSpeed = 1;
-    public static final int kIntakeLauncherSpeed = -1;
+    public static final double kIntakeFeederSpeed = RobotContainer.getShooterTriggerIntake();
+    public static final double kIntakeLauncherSpeed = RobotContainer.getShooterTriggerOuttake();
   }
 }

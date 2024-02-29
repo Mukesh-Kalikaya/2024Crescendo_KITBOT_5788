@@ -34,7 +34,7 @@ public class Drivetrain extends SubsystemBase {
     leftMotor1 = new TalonSRX(DrivetrainConstants.kDriveLeaderLeft);
     leftMotor2 = new TalonSRX(DrivetrainConstants.kDriveFollowerLeft);
     rightMotor1 = new TalonSRX(DrivetrainConstants.kDriveLeaderRight);
-    rightMotor2 = new TalonSRX(DrivetrainConstants.kDriveFollowerLeft);
+    rightMotor2 = new TalonSRX(DrivetrainConstants.kDriveFollowerRight);
 
     leftMotor2.follow(leftMotor1);
     rightMotor2.follow(rightMotor1);
@@ -48,7 +48,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setPower(double leftPower, double rightPower) {
-    leftMotor1.set(TalonSRXControlMode.PercentOutput, -leftPower*0.75);
+    leftMotor1.set(TalonSRXControlMode.PercentOutput, -leftPower);
     rightMotor1.set(TalonSRXControlMode.PercentOutput, rightPower);
   }
 }

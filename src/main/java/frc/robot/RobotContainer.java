@@ -22,7 +22,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final Launcher m_exampleSubsystem = new Launcher();
+  private final Launcher m_launcher = new Launcher();
   private final Drivetrain m_driveTrain = new Drivetrain();
 
   // Commands
@@ -91,16 +91,16 @@ public class RobotContainer {
   }
 
   public static double getShooterTriggerIntake() {
-    if (Math.abs(m_manipulatorController.getLeftTriggerAxis()) > 0) {
-      return m_manipulatorController.getLeftTriggerAxis();
+    if (Math.abs(m_driverController.getLeftTriggerAxis()) > 0) {
+      return m_driverController.getLeftTriggerAxis();
     } else {
       return 0;
     }
   }
 
   public static double getShooterTriggerOuttake() {
-    if (Math.abs(m_manipulatorController.getRightTriggerAxis()) > 0) {
-      return m_manipulatorController.getRightTriggerAxis();
+    if (Math.abs(m_driverController.getRightTriggerAxis()) > 0) {
+      return m_driverController.getRightTriggerAxis();
     } else {
       return 0;
     }

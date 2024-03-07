@@ -6,10 +6,11 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.TankDrive;
+// import frc.robot.commands.ExampleCommand;
+// import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Launcher;
+import frc.robot.subsystems.PhotonSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -24,9 +25,10 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Launcher m_launcher = new Launcher();
   private final Drivetrain m_driveTrain = new Drivetrain();
+  public static final PhotonSubsystem m_photonSubsystem = new PhotonSubsystem();
 
   // Commands
-  private final TankDrive m_tankDrive = new TankDrive(m_driveTrain);
+  //private final TankDrive m_tankDrive = new TankDrive(m_driveTrain);
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private static final CommandXboxController m_driverController =
@@ -69,10 +71,11 @@ public class RobotContainer {
   //   // An example command will be run in autonomous
   //   return Autos.exampleAuto(m_exampleSubsystem);
   // }
-
+  /* 
   public Command getTankDriveCommand() {
     return m_tankDrive;
   }
+  */
 
   public static double getDriveLeftAxis() {
     if (Math.abs(m_driverController.getLeftY()) > 0) {
